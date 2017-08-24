@@ -3,6 +3,8 @@ const argv = require('yargs').argv;
 const app = module.exports = express();
 const port = (argv.port) ? argv.port : 3000;
 const bodyParser = require('body-parser');
+const path = __dirname + '/views/';
+const router = express.Router();
 
 // Static content
 app.use(express.static(__dirname + '/public'));
@@ -14,13 +16,19 @@ app.locals = {
   'host' : 'localhost'
 };
 
-app.get('/', (request, response) => {
-  response.send();
+router.get("/",function(req,res){
+  res.sendFile(path + "index.html");
 });
 
-app.post('/', (request, response) => {
-  response.send();
+router.get("/about",function(req,res){
+  res.sendFile(path + "about.html");
 });
+
+router.get("/contact",function(req,res){
+  res.sendFile(path + "contact.html");
+});
+
+app.use("/",router);
 
 app.listen(port, (err) => {
   if (err) {
