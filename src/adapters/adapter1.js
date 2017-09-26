@@ -1,2 +1,1 @@
-111
-adapter1.js
+new adapter 1
