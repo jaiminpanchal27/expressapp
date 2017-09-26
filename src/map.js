@@ -3,6 +3,7 @@ let max = 31;
 function extractEmails (text) {
   return text.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
 }
+// some updates
 
 while(max > 0 ) {
   var options = {
